@@ -26,5 +26,5 @@ runs:
 
     - name: get hash
       id: hash
-      run: echo "::set-output name=hash::$(echo "${{ inputs.message }}" | openssl sha1)"
+      run: echo "::set-output name=value::$(echo "${{ inputs.message }}" | openssl sha1)"
       shell: bash
