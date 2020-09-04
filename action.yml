@@ -24,6 +24,10 @@ runs:
       env:
         CONTEXT: ${{ toJson(github) }}
 
+    - name: "secrets?"
+      run: [[ "foo" == "${{ secrets.FOO }}" ]] || echo "cannot read"
+      shell: bash
+
     - name: show files
       run: ls -la
       shell: bash
