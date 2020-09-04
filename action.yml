@@ -1,0 +1,30 @@
+name: Example composite steps action
+description: An example composite steps action showing message given by user action.
+
+inputs:
+  message:
+    description: message to show
+    required: true
+    default: 'Hello World'
+outputs:
+  hash:
+    description: sha1 of input message
+    value: ${{ steps.hash.outputs.value }}
+
+runs:
+  using: composite
+  steps:
+    - name: show message
+      run: echo "${{ inputs.message }}"
+      shell: bash
+
+    - name: show context
+      run: echo "${{ CONTEXT }}"
+      shell: bash
+      env:
+        CONTEXT: ${{ toJson(github) }}
+
+    - name: get hash
+      id: hash
+      run: echo "::set-output name=hash::$(echo "${{ inputs.message }}" | openssl sha1)"
+      shell: bash
