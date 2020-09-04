@@ -31,7 +31,7 @@ runs:
 
     - name: setup Java
       uses: actions/setup-java@v1
-        with:
+      with:
           java-version: 14
 
     - name: show Java version
