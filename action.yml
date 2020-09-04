@@ -19,7 +19,7 @@ runs:
       shell: bash
 
     - name: show context
-      run: echo "${ CONTEXT }"
+      run: echo "${CONTEXT}"
       shell: bash
       env:
         CONTEXT: ${{ toJson(github) }}
