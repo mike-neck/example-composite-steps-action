@@ -1,0 +1,20 @@
+name: Test
+on: [push]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Call self
+        uses: mike-neck/example-composite-steps-action@master
+        id: composite
+        with:
+          message: "This is test"
+
+      - name: show result
+        run: |
+          echo "= output ==="
+          echo "${{ steps.composite.outputs.hash }}"
+          echo "= hash ==="
+          echo "This is test" | openssl sha1
