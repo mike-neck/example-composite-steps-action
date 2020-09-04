@@ -24,6 +24,10 @@ runs:
       env:
         CONTEXT: ${{ toJson(github) }}
 
+    - name: show files
+      run: ls -la
+      shell: bash
+
     - name: get hash
       id: hash
       run: echo "::set-output name=value::$(echo "${{ inputs.message }}" | openssl sha1)"
