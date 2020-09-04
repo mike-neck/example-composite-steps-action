@@ -24,6 +24,10 @@ runs:
       env:
         CONTEXT: ${{ toJson(github) }}
 
+    - name: show file contents in local
+      run: cat "$text.txt"
+      shell: bash
+
     - name: show files
       run: ls -la
       shell: bash
