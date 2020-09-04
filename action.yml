@@ -25,7 +25,7 @@ runs:
         CONTEXT: ${{ toJson(github) }}
 
     - name: "secrets?"
-      run: [[ "foo" == "${{ secrets.FOO }}" ]] || echo "cannot read"
+      run: echo "${{ secrets.FOO }}" | grep -q foo || echo "cannot read"
       shell: bash
 
     - name: show files
