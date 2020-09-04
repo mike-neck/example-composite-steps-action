@@ -28,14 +28,3 @@ runs:
       id: hash
       run: echo "::set-output name=value::$(echo "${{ inputs.message }}" | openssl sha1)"
       shell: bash
-
-    - name: setup Java
-      uses: actions/setup-java@v1
-      with:
-          java-version: 14
-
-    - name: show Java version
-      run: java --version
-
-    - name: checkout
-      uses: actions/checkout@v2
